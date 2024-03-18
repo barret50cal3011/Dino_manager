@@ -10,6 +10,8 @@ from classes.Species.Nodosaurus import Nodosaurus
 from classes.Species.Pachycephalosaurus import Pachycephalosaurus
 from classes.Species.Parasaurolophus import Parasaurolophus
 from classes.Species.Pentaceratops import Pentaceratops
+from classes.Species.Polacanthus import Polacanthus
+from classes.Species.Sauropelta import Sauropelta
 from classes.Species.Sinoceratops import Sinoceratops
 from classes.Species.Stegosaurus import Stegosaurus
 from classes.Species.Struthiomimus import Struthiomimus
@@ -34,6 +36,8 @@ def upload(dinosaurs:dict={}):
     add_dino(i_data=dinosaurs, i_dino=Pachycephalosaurus());
     add_dino(i_data=dinosaurs, i_dino=Parasaurolophus());
     add_dino(i_data=dinosaurs, i_dino=Pentaceratops());
+    add_dino(i_data=dinosaurs, i_dino=Polacanthus());
+    add_dino(i_data=dinosaurs, i_dino=Sauropelta());
     add_dino(i_data=dinosaurs, i_dino=Sinoceratops());
     add_dino(i_data=dinosaurs, i_dino=Stegosaurus());
     add_dino(i_data=dinosaurs, i_dino=Struthiomimus());
