@@ -1,0 +1,7 @@
+./__pycache__
+./classes/__pycache__
+./classes/BioGroups/__pycache__
+./classes/Family/__pycache__
+./classes/Species/__pycache__
+./data_structures/__pycache__
+*.pyc
