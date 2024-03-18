@@ -18,5 +18,13 @@ class Dinosaur:
         return self._family;
 
 
+    def get_bio_group(self):
+        return self._bio_goup;
+
+
+    def get_era(self):
+        return self._era;
+
+
     def to_string(self):
         return f"species: {self._species}\nfamily: {self._family}\ndiet: {self._diet}\nera: {self._era}\n\n"

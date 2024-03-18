@@ -8,5 +8,5 @@ class Dracorex(Pachy):
     def __init__(self):
         super().__init__(self.SPECIES)
         self._era = "late cretaceous"
-        
-        self._likes.add(Nodosaurus.get_species())
+
+        self._likes.add(Nodosaurus.SPECIES)
