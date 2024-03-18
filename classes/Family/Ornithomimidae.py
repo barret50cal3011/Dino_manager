@@ -1,4 +1,4 @@
-from classes.SmallHerbivore import SmallHerbivore as SH
+from classes.BioGroups.SmallHerbivore import SmallHerbivore as SH
 
 class Ornithomimidae(SH):
     

@@ -1,4 +1,4 @@
-from classes.Ceratopsidae import Ceratopsidae
+from classes.Family.Ceratopsidae import Ceratopsidae
 
 class Torosaurus(Ceratopsidae):
 

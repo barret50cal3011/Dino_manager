@@ -6,6 +6,8 @@ class Dinosaur:
         self._bio_goup = i_bio_group;
         self._diet = None;
         self._era = None;
+        self._likes = set();
+        self._dislikes = set();
 
 
     def get_species(self):
@@ -17,4 +19,4 @@ class Dinosaur:
 
 
     def to_string(self):
-        return f"species: {self._species}, family: {self._family}"
+        return f"species: {self._species}\nfamily: {self._family}\ndiet: {self._diet}\nera: {self._era}\n\n"

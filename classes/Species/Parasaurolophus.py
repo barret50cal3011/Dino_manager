@@ -1,4 +1,4 @@
-from classes.Hadrosauridae import Hadrosauridae as Hauro
+from classes.Family.Hadrosauridae import Hadrosauridae as Hauro
 
 class Parasaurolophus(Hauro):
 

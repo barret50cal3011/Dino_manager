@@ -1,4 +1,4 @@
-from classes.ArmoredHerbivore import ArmorHerbivore as AH
+from classes.BioGroups.ArmoredHerbivore import ArmorHerbivore as AH
 
 class Nodosauridae(AH): 
     

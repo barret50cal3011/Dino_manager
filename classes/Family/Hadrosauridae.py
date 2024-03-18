@@ -1,4 +1,4 @@
-from classes.MediumHerbivore import MediumHerbivore as MH
+from classes.BioGroups.MediumHerbivore import MediumHerbivore as MH
 
 class Hadrosauridae(MH):
 

@@ -3,6 +3,6 @@ from Upload_base_game import upload
 
 
 if __name__ == "__main__":
-    data = upload();
-    for key in data:
-        print(data[key].to_string())
+    dinosaurs = upload();
+    for name in dinosaurs:
+        print(dinosaurs[name].to_string())
