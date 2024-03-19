@@ -4,15 +4,23 @@ from classes.Species.Ankilosaurus import Ankilosaurus
 from classes.Species.Archeornithomimus import Archeornithomimus
 from classes.Species.Chasmosaurus import Chasmosaurus
 from classes.Species.Chungkingosaurus import Chungkingosaurus
+from classes.Species.Corytosaurus import Corytosaurus
 from classes.Species.Crichtonsaurus import Crichtonsaurus
 from classes.Species.Dracorex import Dracorex
+from classes.Species.Dyosaurus import Dyosaurus
+from classes.Species.Edmontosaurus import Edmontosaurus
 from classes.Species.Euoplocephalus import Euoplocephalus
 from classes.Species.Gallimimus import Gallimimus
 from classes.Species.Gigantspinosaurus import Gigantspinosaurus
 from classes.Species.Homalocephale import Homolocephale
+from classes.Species.Iguanodon import Iguanodon
 from classes.Species.Kentrosaurus import Kentrosaurus
+from classes.Species.Maiasaura import Maiasaura
+from classes.Species.Muttaburrasaurus import Muttaburrasaurus
 from classes.Species.Nasutoceratops import Nasutoceratops
 from classes.Species.Nodosaurus import Nodosaurus
+from classes.Species.Oloratitan import Olorotitan
+from classes.Species.Ouranosaurus import Ouranosaurus
 from classes.Species.Pachycephalosaurus import Pachycephalosaurus
 from classes.Species.Parasaurolophus import Parasaurolophus
 from classes.Species.Pentaceratops import Pentaceratops
@@ -25,6 +33,7 @@ from classes.Species.Stygimoloch import Stygimoloch
 from classes.Species.Styracosaurus import Styracosaurus
 from classes.Species.Torosaurus import Torosaurus
 from classes.Species.Triceratops import Triceratops
+from classes.Species.Tsintaosaurus import Tsintaosaurus
 
 
 def add_dino(i_data: dict, i_dino: Dino):
@@ -36,15 +45,23 @@ def upload(dinosaurs:dict={}):
     add_dino(i_data=dinosaurs, i_dino=Archeornithomimus());
     add_dino(i_data=dinosaurs, i_dino=Chasmosaurus());
     add_dino(i_data=dinosaurs, i_dino=Chungkingosaurus());
+    add_dino(i_data=dinosaurs, i_dino=Corytosaurus());
     add_dino(i_data=dinosaurs, i_dino=Crichtonsaurus());
     add_dino(i_data=dinosaurs, i_dino=Dracorex());
+    add_dino(i_data=dinosaurs, i_dino=Dyosaurus());
+    add_dino(i_data=dinosaurs, i_dino=Edmontosaurus());
     add_dino(i_data=dinosaurs, i_dino=Euoplocephalus());
     add_dino(i_data=dinosaurs, i_dino=Gallimimus());
     add_dino(i_data=dinosaurs, i_dino=Gigantspinosaurus());
     add_dino(i_data=dinosaurs, i_dino=Homolocephale());
-    add_dino(i_dino=dinosaurs, i_data=Kentrosaurus());
+    add_dino(i_data=dinosaurs, i_dino=Iguanodon());
+    add_dino(i_data=dinosaurs, i_dino=Kentrosaurus());
+    add_dino(i_data=dinosaurs, i_dino=Maiasaura());
+    add_dino(i_data=dinosaurs, i_dino=Muttaburrasaurus());
     add_dino(i_data=dinosaurs, i_dino=Nasutoceratops());
     add_dino(i_data=dinosaurs, i_dino=Nodosaurus());
+    add_dino(i_data=dinosaurs, i_dino=Olorotitan());
+    add_dino(i_data=dinosaurs, i_dino=Ouranosaurus());
     add_dino(i_data=dinosaurs, i_dino=Pachycephalosaurus());
     add_dino(i_data=dinosaurs, i_dino=Parasaurolophus());
     add_dino(i_data=dinosaurs, i_dino=Pentaceratops());
@@ -57,4 +74,5 @@ def upload(dinosaurs:dict={}):
     add_dino(i_data=dinosaurs, i_dino=Styracosaurus());
     add_dino(i_data=dinosaurs, i_dino=Torosaurus());
     add_dino(i_data=dinosaurs, i_dino=Triceratops());
+    add_dino(i_data=dinosaurs, i_dino=Tsintaosaurus());
     return dinosaurs;
