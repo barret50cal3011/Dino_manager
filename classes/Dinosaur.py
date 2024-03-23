@@ -26,5 +26,11 @@ class Dinosaur:
         return self._era;
 
 
+    def get_likes(self):
+        return self._likes
+    
+    def get_dislikes(self):
+        return self._dislikes
+
     def to_string(self):
         return f"species: {self._species}\nfamily: {self._family}\ndiet: {self._diet}\nera: {self._era}\n\n"

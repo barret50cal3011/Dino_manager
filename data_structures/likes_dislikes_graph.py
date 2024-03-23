@@ -23,24 +23,38 @@ class Graph:
 
     def contains(self, i_dino):
         return i_dino in self.__nodes
+    
+    def to_string(self):
+        str = "Nodes:\n"
+        for node in self.__nodes:
+            str += node + "    \n"
+        str += "\n"
+
+        for node in self.__edges:
+            str += "    " + node + "|-->"
+            for edge in self.__edges[node]:
+                str += edge + ", "
+            str += "\n"
+        
+        return str
 
 def generate_graph(dinosaurs: dict):
     dino_likes = Graph()
     for dino in dinosaurs:
-        dino_likes.add_node(dino["species"])
+        dino_likes.add_node(dino)
 
     for dino in dinosaurs:
-        likes = dino["likes"]
+        likes = dinosaurs[dino].get_likes()
         for like in likes:
             if(dino_likes.contains(like)):
                 dino_likes.add_edge(i_origin=dino, i_destination=like)
 
     dino_dislikes = Graph()
     for dino in dinosaurs:
-        dino_dislikes.add_node(dino["species"])
+        dino_dislikes.add_node(dino)
 
     for dino in dinosaurs:
-        dislikes = dino["dislikes"]
+        dislikes = dinosaurs[dino].get_dislikes()
         for dislike in dislikes:
             if(dino_dislikes.contains(dislike)):
                 dino_dislikes.add_edge(i_origin=dino, i_destination=dislike)
