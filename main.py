@@ -1,12 +1,9 @@
-from classes.Dinosaur import Dinosaur as Dino
-from data_structures.search import search_family
-from Upload_base_game import upload
+from classes.Dinosaur_json import Dinosaur
+from load_from_json import upload_base_game
 
 
 if __name__ == "__main__":
-    dinosaurs = upload();
-    armor_herbivores = search_family(i_dinosaurs=dinosaurs, i_family="nodosauridae")
-
-    print("nodosauridae")
-    for dino in armor_herbivores:
-        print(armor_herbivores[dino].to_string())
+    dinosaurs = upload_base_game();
+    
+    for dino in dinosaurs:
+        print(dinosaurs[dino].to_string())
