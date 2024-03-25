@@ -31,6 +31,7 @@ def upload_base_game(dinosaurs:dict={}):
     return dinosaurs
 
 def load_form_db(dinosaurs:dict={}, ids:dict={}):
+    #Base information for the dinosaurs
     species_file_name = "data/db/species_db.json"
     species_file = open(species_file_name)
     species_data = json.load(species_file)["rows"]
@@ -48,6 +49,7 @@ def load_form_db(dinosaurs:dict={}, ids:dict={}):
         ids[new_dino.id] = new_dino.name
         dinosaurs[new_dino.name] = new_dino
 
+    #Reasource group and cohabitation information
     needs_file = open("data/db/species_needs.json")
     needs_data = json.load(needs_file)["rows"]
     for need in needs_data:
@@ -72,5 +74,12 @@ def load_form_db(dinosaurs:dict={}, ids:dict={}):
                 dinosaurs[ids[cohabitation[0]]].add_cohabitation_dislike(set([ids[cohabitation[1]]]))
                 if(ids[cohabitation[1]] in dinosaurs[ids[cohabitation[0]]].cohabitation_likes):
                     dinosaurs[ids[cohabitation[0]]].remove_cohabitation_like(ids[cohabitation[1]])
+
+    #Paleo preferences
+    paleo_file = open("data/db/species_paleo_preference.json")
+    paleo_data = json.load(paleo_file)["rows"]
+    for preference in paleo_data:
+        dinosaurs[ids[preference[0]]].add_preference(preference[1], preference[2])
+
     return (dinosaurs, ids)
 

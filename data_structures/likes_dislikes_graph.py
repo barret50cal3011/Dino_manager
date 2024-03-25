@@ -6,6 +6,11 @@ class Graph:
         self.__nodes = set()
         self.__edges = {}
 
+    @property
+    def nodes(self):
+        return self.__nodes
+    
+
     def add_node(self, i_new_node):
         self.__nodes.add(i_new_node)
 

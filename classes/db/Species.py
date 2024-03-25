@@ -11,6 +11,7 @@ class Species:
         self.__resource_group = None
         self.__cohabitation_likes = set()
         self.__cohabitation_dislikes = set()
+        self.__paleo_preferences = {}
 
     
     @property
@@ -52,7 +53,17 @@ class Species:
     @property
     def cohabitation_dislikes(self):
         return self.__cohabitation_dislikes
+    
+    @property
+    def paleo_preferences(self):
+        return self.__paleo_preferences
 
+    def is_terrestrial(self):
+        return not (self.__is_aquatic or self.__is_pterosaur)
+    
+    def add_preference(self, i_preference, i_amount):
+        self.__paleo_preferences[i_preference] = i_amount
+    
     @resource_group.setter
     def resource_group(self, i_resource_group):
         if(self.__resource_group != None):
