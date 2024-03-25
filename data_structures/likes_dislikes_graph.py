@@ -14,16 +14,34 @@ class Graph:
         if(not i_origin in self.__nodes):
             raise Exception(f"origin {i_origin} not in nodes")
         if(not i_destination in self.__nodes):
-            raise Exception(f"deftonation {i_destination} not in nodes")
+            raise Exception(f"destonation {i_destination} not in nodes")
         
         if(not i_origin in self.__edges):
             self.__edges[i_origin] = set()
         self.__edges[i_origin].add(i_destination)
 
+    def adgecent_nodes(self, i_node):
+        if(not i_node in self.__nodes):
+            raise Exception(f"node {i_node} not in nodes")
+        
+        return self.__edges[i_node]
+
 
     def contains(self, i_dino):
         return i_dino in self.__nodes
     
+
+    def is_directly_connected(self, i_origin, i_destination):
+        if(not i_origin in self.__nodes):
+            raise Exception(f"origin {i_origin} not in nodes")
+        if(not i_destination in self.__nodes):
+            raise Exception(f"destonation {i_destination} not in nodes")
+        
+        if(not i_origin in self.__edges):
+            return False
+        return i_destination in self.__edges[i_origin]
+
+
     def to_string(self):
         str = "Nodes:\n"
         for node in self.__nodes:
@@ -44,7 +62,7 @@ def generate_graph(dinosaurs: dict):
         dino_likes.add_node(dino)
 
     for dino in dinosaurs:
-        likes = dinosaurs[dino].get_likes()
+        likes = dinosaurs[dino].cohabitation_likes
         for like in likes:
             if(dino_likes.contains(like)):
                 dino_likes.add_edge(i_origin=dino, i_destination=like)
@@ -54,7 +72,7 @@ def generate_graph(dinosaurs: dict):
         dino_dislikes.add_node(dino)
 
     for dino in dinosaurs:
-        dislikes = dinosaurs[dino].get_dislikes()
+        dislikes = dinosaurs[dino].cohabitation_dislikes
         for dislike in dislikes:
             if(dino_dislikes.contains(dislike)):
                 dino_dislikes.add_edge(i_origin=dino, i_destination=dislike)

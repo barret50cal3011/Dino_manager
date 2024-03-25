@@ -7,5 +7,6 @@ from data_structures.search import search_resource_group
 if __name__ == "__main__":
     (dinosaurs, ids) = load_form_db();
     
-    
-
+    (likes, dislikes) = generate_graph(dinosaurs)
+    print(likes.is_directly_connected("Brachiosaurus", "Ankylodocus"))
+    print(dislikes.is_directly_connected("Brachiosaurus", "Ankylodocus"))

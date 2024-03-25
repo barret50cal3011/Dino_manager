@@ -1,5 +1,5 @@
 import json
-from data_structures.search import search_id
+from data_structures.search import search_resource_group
 from classes.Dinosaur_json import Dinosaur
 from classes.db.Species import Species
 
@@ -53,5 +53,24 @@ def load_form_db(dinosaurs:dict={}, ids:dict={}):
     for need in needs_data:
         dinosaurs[ids[need[0]]].resource_group = need[7]
 
+    cohabitation_file = open("data/db/species_cohabitation_db.json")
+    cohabitation_data = json.load(cohabitation_file)["rows"]
+    for cohabitation in cohabitation_data:
+        if(cohabitation[3] == 1):
+            if(cohabitation[1] == None):
+                cohab_species = search_resource_group(dinosaurs, cohabitation[2])
+                dinosaurs[ids[cohabitation[0]]].add_cohabitation_like(set(cohab_species))
+            else:
+                dinosaurs[ids[cohabitation[0]]].add_cohabitation_like(set([ids[cohabitation[1]]]))
+                if(ids[cohabitation[1]] in dinosaurs[ids[cohabitation[0]]].cohabitation_dislikes):
+                    dinosaurs[ids[cohabitation[0]]].remove_cohabitation_dislike(ids[cohabitation[1]])
+        else:
+            if(cohabitation[1] == None):
+                cohab_species = search_resource_group(dinosaurs, cohabitation[2])
+                dinosaurs[ids[cohabitation[0]]].add_cohabitation_dislike(set(cohab_species))
+            else:
+                dinosaurs[ids[cohabitation[0]]].add_cohabitation_dislike(set([ids[cohabitation[1]]]))
+                if(ids[cohabitation[1]] in dinosaurs[ids[cohabitation[0]]].cohabitation_likes):
+                    dinosaurs[ids[cohabitation[0]]].remove_cohabitation_like(ids[cohabitation[1]])
     return (dinosaurs, ids)
 

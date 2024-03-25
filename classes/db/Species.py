@@ -9,6 +9,8 @@ class Species:
         self.__is_pterosaur = i_is_pterosaur
         self.__is_aquatic = i_is_aquatic
         self.__resource_group = None
+        self.__cohabitation_likes = set()
+        self.__cohabitation_dislikes = set()
 
     
     @property
@@ -43,10 +45,29 @@ class Species:
     def resource_group(self):
         return self.__resource_group
     
+    @property
+    def cohabitation_likes(self):
+        return self.__cohabitation_likes
+    
+    @property
+    def cohabitation_dislikes(self):
+        return self.__cohabitation_dislikes
+
     @resource_group.setter
     def resource_group(self, i_resource_group):
         if(self.__resource_group != None):
             raise Exception("Resource group is already set")
         self.__resource_group = i_resource_group
 
+    def add_cohabitation_like(self, i_species:set):
+        self.__cohabitation_likes = self.__cohabitation_likes.union(i_species)
+
+    def add_cohabitation_dislike(self, i_species:set):
+        self.__cohabitation_dislikes = self.__cohabitation_dislikes.union(i_species)
+
+    def remove_cohabitation_like(self, i_species:set):
+        self.__cohabitation_likes.remove(i_species)
+
+    def remove_cohabitation_dislike(self, i_species:set):
+        self.__cohabitation_dislikes.remove(i_species)
     
