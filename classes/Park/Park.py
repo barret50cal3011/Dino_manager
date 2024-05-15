@@ -2,8 +2,13 @@ from classes.Park.Enclosure import Enclosure
 
 class Park:
 
-    def __init__(self) -> None:
+    def __init__(self, i_biome: str) -> None:
         self.__enclosures = []
+        self.__biome = i_biome
+
+    @property
+    def biome(self):
+        return self.__biome
 
     def add_enclosure(self, enclosure: Enclosure):
         self.__enclosures.append(enclosure)

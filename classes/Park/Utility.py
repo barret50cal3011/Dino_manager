@@ -7,6 +7,12 @@ def sugest_new_dinosaur(i_enclousure: Enclosure , i_likes: Graph, i_dislikes: Gr
     dinosaurs_value = {}
     for dino in i_likes.nodes:
         if(not i_enclousure.has_dinosaur(dino) and not (park != None and park.has_dinosaur(dino))):
+            if(
+                (i_enclousure.type == "Lagoon" and not dinosaurs[dino].is_aquatic) or
+                (i_enclousure.type == "Aviary" and not dinosaurs[dino].is_pterosaur) or
+                (i_enclousure.type == "Terrestrial" and (dinosaurs[dino].is_aquatic or dinosaurs[dino].is_pterosaur))
+            ):
+                continue
             value = 0
             for dino_in_enclosure in i_enclousure.dinosaurs():
                 if(i_likes.is_directly_connected(dino_in_enclosure, dino)):
@@ -24,6 +30,12 @@ def sugest_new_dinosaur(i_enclousure: Enclosure , i_likes: Graph, i_dislikes: Gr
                     i_dislikes.is_directly_connected(dino, dino_in_enclosure)
                 ):
                     value += 5
+                for resource in dinosaurs[dino].paleo_preferences:
+                    if((park.biome == "Dessert" and resource == "Forest") or resource == "Wetland"):
+                        continue
+                    if(i_enclousure.has_resources(resource)):
+                        value += 5
+
             dinosaurs_value[dino] = value
 
     top_dinos = sorted(dinosaurs_value, key=dinosaurs_value.get, reverse=True)[:top]

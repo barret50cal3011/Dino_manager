@@ -3,7 +3,7 @@ from classes.db.Species import Species
 
 class Lagoon(Enclosure):
     def __init__(self) -> None:
-        super().__init__()
+        super().__init__("Lagoon")
 
     def add_dinosaur(self, dinosaur: Species, amount: int):
         if(dinosaur.is_aquatic):

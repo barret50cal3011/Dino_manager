@@ -2,9 +2,14 @@ from classes.db.Species import Species
 
 class Enclosure:
 
-    def __init__(self) -> None:
+    def __init__(self, i_type) -> None:
         self._dinosaurs = {}
         self._resources = set()
+        self._type = i_type
+
+    @property
+    def type(self):
+        return self._type
 
     @property
     def resources(self):
